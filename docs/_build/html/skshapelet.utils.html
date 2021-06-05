@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skshapelet.utils package &#8212; skshapelet</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d8bbf5861d671d414e1a.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="skshapelet.statistics package" href="skshapelet.statistics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="index.html">
+      <p class="title">skshapelet</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="modules.html">
+  skshapelet
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2">
+  <a class="reference internal" href="setup.html">
+   setup module
+  </a>
+ </li>
+ <li class="toctree-l2 current active">
+  <a class="reference internal" href="skshapelet.html">
+   skshapelet package
+  </a>
+  <ul class="current">
+   <li class="toctree-l3">
+    <a class="reference internal" href="skshapelet.classifiers.html">
+     skshapelet.classifiers package
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="skshapelet.datasets.html">
+     skshapelet.datasets package
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="skshapelet.shapelet.html">
+     skshapelet.shapelet package
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="skshapelet.statistics.html">
+     skshapelet.statistics package
+    </a>
+   </li>
+   <li class="toctree-l3 current active">
+    <a class="current reference internal" href="#">
+     skshapelet.utils package
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.utils.TimeSeries">
+   skshapelet.utils.TimeSeries module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.utils.category">
+   skshapelet.utils.category module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.utils.scheduler">
+   skshapelet.utils.scheduler module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.utils.timer">
+   skshapelet.utils.timer module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.utils.validation">
+   skshapelet.utils.validation module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.utils">
+   Module contents
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="skshapelet-utils-package">
+<h1>skshapelet.utils package<a class="headerlink" href="#skshapelet-utils-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-skshapelet.utils.TimeSeries">
+<span id="skshapelet-utils-timeseries-module"></span><h2>skshapelet.utils.TimeSeries module<a class="headerlink" href="#module-skshapelet.utils.TimeSeries" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="skshapelet.utils.TimeSeries.TimeSeries">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.utils.TimeSeries.</code><code class="sig-name descname">TimeSeries</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">len</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">inv_cov</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/TimeSeries.html#TimeSeries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.TimeSeries.TimeSeries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The class to describe time series behaviours.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>id: int</dt><dd><p>The index of the time series dataset.</p>
+</dd>
+<dt>label: int</dt><dd><p>The label of the time series.</p>
+</dd>
+<dt>len: int, optional</dt><dd><p>The length of the time series.</p>
+</dd>
+<dt>inv_cov: ndarray, optional</dt><dd><p>Inverse covariance matrix related to the time series.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.utils.category">
+<span id="skshapelet-utils-category-module"></span><h2>skshapelet.utils.category module<a class="headerlink" href="#module-skshapelet.utils.category" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="skshapelet.utils.category.Category">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.utils.category.</code><code class="sig-name descname">Category</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/category.html#Category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.category.Category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The category for KNN type classification.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>THIS: int</dt><dd><p>This aims to refer to the current class.</p>
+</dd>
+<dt>OTHER: int</dt><dd><p>This aims to refer to other classes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="skshapelet.utils.category.Category.OTHER">
+<code class="sig-name descname">OTHER</code><em class="property"> = 0</em><a class="headerlink" href="#skshapelet.utils.category.Category.OTHER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="skshapelet.utils.category.Category.THIS">
+<code class="sig-name descname">THIS</code><em class="property"> = 1</em><a class="headerlink" href="#skshapelet.utils.category.Category.THIS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.utils.scheduler">
+<span id="skshapelet-utils-scheduler-module"></span><h2>skshapelet.utils.scheduler module<a class="headerlink" href="#module-skshapelet.utils.scheduler" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="skshapelet.utils.scheduler.round_robin">
+<code class="sig-prename descclassname">skshapelet.utils.scheduler.</code><code class="sig-name descname">round_robin</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">iterables</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/scheduler.html#round_robin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.scheduler.round_robin" title="Permalink to this definition">¶</a></dt>
+<dd><p>The round robin scheduler.
+This mirrors the sktime implementation.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>iterables: list</dt><dd><p>The index with a dist (each class with its own instance ids)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>Return a list of time series index.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.utils.timer">
+<span id="skshapelet-utils-timer-module"></span><h2>skshapelet.utils.timer module<a class="headerlink" href="#module-skshapelet.utils.timer" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="skshapelet.utils.timer.State">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.utils.timer.</code><code class="sig-name descname">State</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/timer.html#State"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.timer.State" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The status for the timer. This class is inherited from Enum.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>activate: int</dt><dd><p>Let the timer engine start.</p>
+</dd>
+<dt>deactivate: int</dt><dd><p>The timer shutdown its engine.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="skshapelet.utils.timer.State.activate">
+<code class="sig-name descname">activate</code><em class="property"> = 1</em><a class="headerlink" href="#skshapelet.utils.timer.State.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="skshapelet.utils.timer.State.deactivate">
+<code class="sig-name descname">deactivate</code><em class="property"> = 0</em><a class="headerlink" href="#skshapelet.utils.timer.State.deactivate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="skshapelet.utils.timer.Timer">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.utils.timer.</code><code class="sig-name descname">Timer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">countdown</span><span class="o">=</span><span class="default_value">inf</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/timer.html#Timer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.timer.Timer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The class to describe timer behaviours.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>state: int</dt><dd><p>The status of the timer.</p>
+</dd>
+<dt>start_time: int</dt><dd><p>When the timer starts to work. The number is presented by second.</p>
+</dd>
+<dt>countdown: int, optional</dt><dd><p>The minutes for the countdown.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="skshapelet.utils.timer.Timer.is_end">
+<code class="sig-name descname">is_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/timer.html#Timer.is_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.timer.Timer.is_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.utils.timer.Timer.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/timer.html#Timer.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.timer.Timer.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.utils.timer.Timer.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/timer.html#Timer.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.timer.Timer.stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.utils.timer.Timer.till_now">
+<code class="sig-name descname">till_now</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/timer.html#Timer.till_now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.timer.Timer.till_now" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.utils.validation">
+<span id="skshapelet-utils-validation-module"></span><h2>skshapelet.utils.validation module<a class="headerlink" href="#module-skshapelet.utils.validation" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="skshapelet.utils.validation.check_min_instances">
+<code class="sig-prename descclassname">skshapelet.utils.validation.</code><code class="sig-name descname">check_min_instances</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arr</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/validation.html#check_min_instances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.validation.check_min_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the array has a suitable size.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>arr: pandas DataFrame</dt><dd><p>The array that needs to be tested.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: bool</dt><dd><p>The instance length requirement check result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.utils.validation.check_min_length">
+<code class="sig-prename descclassname">skshapelet.utils.validation.</code><code class="sig-name descname">check_min_length</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">require_len</span></em>, <em class="sig-param"><span class="n">actual_len</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/validation.html#check_min_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.validation.check_min_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the instance has a suitable size.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>require_len: int</dt><dd><p>The required instance length.</p>
+</dd>
+<dt>actual_len: int</dt><dd><p>The real instance length.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: int</dt><dd><p>The minimum length of the instance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.utils.validation.check_transform_X">
+<code class="sig-prename descclassname">skshapelet.utils.validation.</code><code class="sig-name descname">check_transform_X</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X_list</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/validation.html#check_transform_X"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.validation.check_transform_X" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns X that has been transformed into numpy arrays.
+This mirrors the sktime implementation.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>X_list: pandas DataFrame</dt><dd><p>The array is presented by pandas.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>X_list: ndarray</dt><dd><p>The array is presented by numpy.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.utils.validation.check_transform_series">
+<code class="sig-prename descclassname">skshapelet.utils.validation.</code><code class="sig-name descname">check_transform_series</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X_list</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/validation.html#check_transform_series"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.validation.check_transform_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns X, y that have been transformed into numpy arrays.
+This mirrors the sktime implementation.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>X_list: pandas DataFrame</dt><dd><p>The array is presented by pandas.</p>
+</dd>
+<dt>y: pandas DataFrame</dt><dd><p>The array is presented by pandas.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: ndarray, ndarray</dt><dd><p>The array is presented by numpy.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.utils.validation.check_transform_y">
+<code class="sig-prename descclassname">skshapelet.utils.validation.</code><code class="sig-name descname">check_transform_y</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/validation.html#check_transform_y"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.validation.check_transform_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns y that has been transformed into numpy arrays.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>y: pandas DataFrame</dt><dd><p>The array is presented by pandas.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>y: ndarray</dt><dd><p>The array is presented by numpy.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-skshapelet.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="skshapelet.utils.Category">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.utils.</code><code class="sig-name descname">Category</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/category.html#Category"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.Category" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>The category for KNN type classification.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>THIS: int</dt><dd><p>This aims to refer to the current class.</p>
+</dd>
+<dt>OTHER: int</dt><dd><p>This aims to refer to other classes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="skshapelet.utils.Category.OTHER">
+<code class="sig-name descname">OTHER</code><em class="property"> = 0</em><a class="headerlink" href="#skshapelet.utils.Category.OTHER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="skshapelet.utils.Category.THIS">
+<code class="sig-name descname">THIS</code><em class="property"> = 1</em><a class="headerlink" href="#skshapelet.utils.Category.THIS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="skshapelet.utils.TimeSeries">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.utils.</code><code class="sig-name descname">TimeSeries</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">len</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">inv_cov</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/TimeSeries.html#TimeSeries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.TimeSeries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The class to describe time series behaviours.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>id: int</dt><dd><p>The index of the time series dataset.</p>
+</dd>
+<dt>label: int</dt><dd><p>The label of the time series.</p>
+</dd>
+<dt>len: int, optional</dt><dd><p>The length of the time series.</p>
+</dd>
+<dt>inv_cov: ndarray, optional</dt><dd><p>Inverse covariance matrix related to the time series.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="skshapelet.utils.Timer">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.utils.</code><code class="sig-name descname">Timer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">countdown</span><span class="o">=</span><span class="default_value">inf</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/timer.html#Timer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.Timer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The class to describe timer behaviours.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>state: int</dt><dd><p>The status of the timer.</p>
+</dd>
+<dt>start_time: int</dt><dd><p>When the timer starts to work. The number is presented by second.</p>
+</dd>
+<dt>countdown: int, optional</dt><dd><p>The minutes for the countdown.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="skshapelet.utils.Timer.is_end">
+<code class="sig-name descname">is_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/timer.html#Timer.is_end"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.Timer.is_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.utils.Timer.start">
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/timer.html#Timer.start"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.Timer.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.utils.Timer.stop">
+<code class="sig-name descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/timer.html#Timer.stop"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.Timer.stop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.utils.Timer.till_now">
+<code class="sig-name descname">till_now</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/timer.html#Timer.till_now"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.Timer.till_now" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.utils.check_min_length">
+<code class="sig-prename descclassname">skshapelet.utils.</code><code class="sig-name descname">check_min_length</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">require_len</span></em>, <em class="sig-param"><span class="n">actual_len</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/validation.html#check_min_length"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.check_min_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the instance has a suitable size.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>require_len: int</dt><dd><p>The required instance length.</p>
+</dd>
+<dt>actual_len: int</dt><dd><p>The real instance length.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: int</dt><dd><p>The minimum length of the instance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.utils.check_transform_X">
+<code class="sig-prename descclassname">skshapelet.utils.</code><code class="sig-name descname">check_transform_X</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X_list</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/validation.html#check_transform_X"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.check_transform_X" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns X that has been transformed into numpy arrays.
+This mirrors the sktime implementation.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>X_list: pandas DataFrame</dt><dd><p>The array is presented by pandas.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>X_list: ndarray</dt><dd><p>The array is presented by numpy.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.utils.check_transform_series">
+<code class="sig-prename descclassname">skshapelet.utils.</code><code class="sig-name descname">check_transform_series</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X_list</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/validation.html#check_transform_series"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.check_transform_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns X, y that have been transformed into numpy arrays.
+This mirrors the sktime implementation.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>X_list: pandas DataFrame</dt><dd><p>The array is presented by pandas.</p>
+</dd>
+<dt>y: pandas DataFrame</dt><dd><p>The array is presented by pandas.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: ndarray, ndarray</dt><dd><p>The array is presented by numpy.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.utils.round_robin">
+<code class="sig-prename descclassname">skshapelet.utils.</code><code class="sig-name descname">round_robin</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">iterables</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/utils/scheduler.html#round_robin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.utils.round_robin" title="Permalink to this definition">¶</a></dt>
+<dd><p>The round robin scheduler.
+This mirrors the sktime implementation.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>iterables: list</dt><dd><p>The index with a dist (each class with its own instance ids)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>Return a list of time series index.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="skshapelet.statistics.html" title="previous page">skshapelet.statistics package</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d8bbf5861d671d414e1a.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Miao Cai.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

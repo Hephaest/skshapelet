@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skshapelet.utils.validation &#8212; skshapelet</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d8bbf5861d671d414e1a.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="../../../index.html">
+      <p class="title">skshapelet</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../modules.html">
+  skshapelet
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for skshapelet.utils.validation</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">sktime.utils.data_processing</span> <span class="kn">import</span> <span class="n">from_nested_to_3d_numpy</span>
+<span class="kn">from</span> <span class="nn">sktime.utils.data_processing</span> <span class="kn">import</span> <span class="n">is_nested_dataframe</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.validation</span> <span class="kn">import</span> <span class="n">check_consistent_length</span>
+
+<span class="n">X_TYPES</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+<span class="n">Y_TYPES</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="check_transform_series"><a class="viewcode-back" href="../../../skshapelet.utils.html#skshapelet.utils.validation.check_transform_series">[docs]</a><span class="k">def</span> <span class="nf">check_transform_series</span><span class="p">(</span><span class="n">X_list</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns X, y that have been transformed into numpy arrays.</span>
+<span class="sd">    This mirrors the sktime implementation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        X_list: pandas DataFrame</span>
+<span class="sd">            The array is presented by pandas.</span>
+<span class="sd">        y: pandas DataFrame</span>
+<span class="sd">            The array is presented by pandas.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: ndarray, ndarray</span>
+<span class="sd">            The array is presented by numpy.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">check_transform_y</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">check_consistent_length</span><span class="p">(</span><span class="n">X_list</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+    <span class="n">X</span> <span class="o">=</span> <span class="n">check_transform_X</span><span class="p">(</span><span class="n">X_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span></div>
+
+
+<div class="viewcode-block" id="check_transform_X"><a class="viewcode-back" href="../../../skshapelet.utils.html#skshapelet.utils.validation.check_transform_X">[docs]</a><span class="k">def</span> <span class="nf">check_transform_X</span><span class="p">(</span><span class="n">X_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns X that has been transformed into numpy arrays.</span>
+<span class="sd">    This mirrors the sktime implementation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        X_list: pandas DataFrame</span>
+<span class="sd">            The array is presented by pandas.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        X_list: ndarray</span>
+<span class="sd">            The array is presented by numpy.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X_list</span><span class="p">,</span> <span class="n">X_TYPES</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Array must be np.ndarray or pd.DataFrame type.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># check input type</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X_list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">X_list</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X must be a 3D array&quot;</span><span class="p">)</span>
+
+    <span class="c1"># enforce minimum number of columns</span>
+    <span class="n">n_columns</span> <span class="o">=</span> <span class="n">X_list</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">n_columns</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Array should have at least 1 column&quot;</span><span class="p">)</span>
+
+    <span class="c1"># enforce minimum number of instances</span>
+    <span class="n">check_min_instances</span><span class="p">(</span><span class="n">X_list</span><span class="p">)</span>
+
+    <span class="c1"># check pd.DataFrame</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X_list</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_nested_dataframe</span><span class="p">(</span><span class="n">X_list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;If passed as a pd.DataFrame, X must be a nested &quot;</span>
+                <span class="s2">&quot;pd.DataFrame, with pd.Series or np.arrays inside cells.&quot;</span>
+            <span class="p">)</span>
+        <span class="c1"># convert pd.DataFrame</span>
+        <span class="n">X_list</span> <span class="o">=</span> <span class="n">from_nested_to_3d_numpy</span><span class="p">(</span><span class="n">X_list</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">X_list</span></div>
+
+
+<div class="viewcode-block" id="check_transform_y"><a class="viewcode-back" href="../../../skshapelet.utils.html#skshapelet.utils.validation.check_transform_y">[docs]</a><span class="k">def</span> <span class="nf">check_transform_y</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns y that has been transformed into numpy arrays.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        y: pandas DataFrame</span>
+<span class="sd">            The array is presented by pandas.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        y: ndarray</span>
+<span class="sd">            The array is presented by numpy.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">Y_TYPES</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Array must be np.ndarray or pd.Series type.&quot;</span><span class="p">)</span>
+    <span class="n">check_min_instances</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">y</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">)</span> <span class="k">else</span> <span class="n">y</span></div>
+
+
+<div class="viewcode-block" id="check_min_instances"><a class="viewcode-back" href="../../../skshapelet.utils.html#skshapelet.utils.validation.check_min_instances">[docs]</a><span class="k">def</span> <span class="nf">check_min_instances</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check the array has a suitable size.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        arr: pandas DataFrame</span>
+<span class="sd">            The array that needs to be tested.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: bool</span>
+<span class="sd">            The instance length requirement check result.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n_instances</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">n_instances</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Array should have at least 1 instance&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="check_min_length"><a class="viewcode-back" href="../../../skshapelet.utils.html#skshapelet.utils.validation.check_min_length">[docs]</a><span class="k">def</span> <span class="nf">check_min_length</span><span class="p">(</span><span class="n">require_len</span><span class="p">,</span> <span class="n">actual_len</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Check the instance has a suitable size.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        require_len: int</span>
+<span class="sd">            The required instance length.</span>
+<span class="sd">        actual_len: int</span>
+<span class="sd">            The real instance length.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: int</span>
+<span class="sd">            The minimum length of the instance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">require_len</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">require_len</span><span class="p">,</span> <span class="n">actual_len</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">actual_len</span></div>
+</pre></div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d8bbf5861d671d414e1a.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Miao Cai.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

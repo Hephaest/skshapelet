@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skshapelet.statistics.distance &#8212; skshapelet</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d8bbf5861d671d414e1a.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="../../../index.html">
+      <p class="title">skshapelet</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../modules.html">
+  skshapelet
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for skshapelet.statistics.distance</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="zscore"><a class="viewcode-back" href="../../../skshapelet.statistics.html#skshapelet.statistics.distance.zscore">[docs]</a><span class="k">def</span> <span class="nf">zscore</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the z-score of 1-D array.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        a: ndarray</span>
+<span class="sd">            The required array.</span>
+<span class="sd">        axis: int, optional</span>
+<span class="sd">            The axis of the array.</span>
+<span class="sd">        ddof: int, optional</span>
+<span class="sd">            Means Delta Degrees of Freedom.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: ndarray</span>
+<span class="sd">            The z-scores, standardized by mean and standard deviation of input array a.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="n">std</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="n">ddof</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">std</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="n">mn</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">mn</span><span class="p">)</span> <span class="o">/</span> <span class="n">std</span></div>
+
+
+<div class="viewcode-block" id="euclidean_distance"><a class="viewcode-back" href="../../../skshapelet.statistics.html#skshapelet.statistics.distance.euclidean_distance">[docs]</a><span class="k">def</span> <span class="nf">euclidean_distance</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the Euclidean distance between 2 1-D arrays.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        this: ndarray</span>
+<span class="sd">            The array.</span>
+<span class="sd">        other: ndarray</span>
+<span class="sd">            The comparative array.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: float</span>
+<span class="sd">            The square of Euclidean distance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dist_norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">this</span> <span class="o">-</span> <span class="n">other</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dist_norm</span> <span class="o">**</span> <span class="mi">2</span></div>
+
+
+<div class="viewcode-block" id="mahalanobis_distance"><a class="viewcode-back" href="../../../skshapelet.statistics.html#skshapelet.statistics.distance.mahalanobis_distance">[docs]</a><span class="k">def</span> <span class="nf">mahalanobis_distance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">inv_cov</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the Mahalanobis distance between 2 1-D arrays.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        X: ndarray</span>
+<span class="sd">            The comparative array.</span>
+<span class="sd">        mean: float</span>
+<span class="sd">            The mean of the array.</span>
+<span class="sd">        inv_cov:</span>
+<span class="sd">            Inverse covariance matrix related to the array.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: float</span>
+<span class="sd">            The square of Mahalanobis distance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">residual</span> <span class="o">=</span> <span class="n">X</span> <span class="o">-</span> <span class="n">mean</span>
+    <span class="n">transpose_residual</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span>
+    <span class="n">dist_square</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="n">inv_cov</span><span class="p">),</span>
+        <span class="n">transpose_residual</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">dist_square</span></div>
+</pre></div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d8bbf5861d671d414e1a.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Miao Cai.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

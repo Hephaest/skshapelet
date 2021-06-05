@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skshapelet.shapelet.shapelet &#8212; skshapelet</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d8bbf5861d671d414e1a.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="../../../index.html">
+      <p class="title">skshapelet</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../modules.html">
+  skshapelet
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for skshapelet.shapelet.shapelet</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="Shapelet"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.shapelet.Shapelet">[docs]</a><span></span><span class="k">class</span> <span class="nc">Shapelet</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;The class to describe shapelet behaviours.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        start_pos: int</span>
+<span class="sd">            The index of the start position.</span>
+<span class="sd">        length: int</span>
+<span class="sd">            The length of the shapelet.</span>
+<span class="sd">        id: int, optional</span>
+<span class="sd">            The index of the time series dataset.</span>
+<span class="sd">        info_gain: int, optional</span>
+<span class="sd">            The information gain of the shapelet.</span>
+<span class="sd">        data: ndarray, optional</span>
+<span class="sd">            Mean array or z-score array of the shapelet.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">start_pos</span><span class="p">,</span>
+            <span class="n">length</span><span class="p">,</span>
+            <span class="nb">id</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">info_gain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_pos</span> <span class="o">=</span> <span class="n">start_pos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">=</span> <span class="n">length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end_pos</span> <span class="o">=</span> <span class="n">start_pos</span> <span class="o">+</span> <span class="n">length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_gain</span> <span class="o">=</span> <span class="n">info_gain</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">=</span> <span class="n">label</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="s2">&quot;Series ID: </span><span class="si">{0}</span><span class="s2">, start_pos: </span><span class="si">{1}</span><span class="s2">, length: </span><span class="si">{2}</span><span class="s2">, label:</span><span class="si">{3}</span><span class="s2">, info_gain: </span><span class="si">{4}</span><span class="s2">&quot;</span>
+            <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_pos</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">info_gain</span><span class="p">)</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="Shapelet.set_id"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.shapelet.Shapelet.set_id">[docs]</a>    <span class="k">def</span> <span class="nf">set_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span></div>
+
+<div class="viewcode-block" id="Shapelet.set_ig"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.shapelet.Shapelet.set_ig">[docs]</a>    <span class="k">def</span> <span class="nf">set_ig</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ig</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info_gain</span> <span class="o">=</span> <span class="n">ig</span></div>
+
+<div class="viewcode-block" id="Shapelet.set_data"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.shapelet.Shapelet.set_data">[docs]</a>    <span class="k">def</span> <span class="nf">set_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Shapelet.set_label"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.shapelet.Shapelet.set_label">[docs]</a>    <span class="k">def</span> <span class="nf">set_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span></div>
+
+<div class="viewcode-block" id="Shapelet.is_self"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.shapelet.Shapelet.is_self">[docs]</a>    <span class="k">def</span> <span class="nf">is_self</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Shapelet</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Type should be Shapelet&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Shapelet.is_intersection"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.shapelet.Shapelet.is_intersection">[docs]</a>    <span class="k">def</span> <span class="nf">is_intersection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Find whether these 2 shapelets have overlapped.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            other: Shapelet</span>
+<span class="sd">                Another shapelet.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            output: Bool</span>
+<span class="sd">                The check result.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Shapelet</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Type should be Shapelet&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">other</span><span class="o">.</span><span class="n">start_pos</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_pos</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">end_pos</span> <span class="ow">or</span> \
+                <span class="bp">self</span><span class="o">.</span><span class="n">start_pos</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">start_pos</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_pos</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Shapelet.is_similar"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.shapelet.Shapelet.is_similar">[docs]</a>    <span class="k">def</span> <span class="nf">is_similar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Find whether these 2 shapelets are similar.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            other: Shapelet</span>
+<span class="sd">                Another shapelet.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            output: Bool</span>
+<span class="sd">                The check result.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_self</span><span class="p">(</span><span class="n">other</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_intersection</span><span class="p">(</span><span class="n">other</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span></div></div>
+</pre></div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d8bbf5861d671d414e1a.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Miao Cai.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

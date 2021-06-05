@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skshapelet.datasets.base &#8212; skshapelet</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d8bbf5861d671d414e1a.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="../../../index.html">
+      <p class="title">skshapelet</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../modules.html">
+  skshapelet
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for skshapelet.datasets.base</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span>
+<span class="kn">from</span> <span class="nn">sktime.utils.data_io</span> <span class="kn">import</span> <span class="n">load_from_tsfile_to_dataframe</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.multiclass</span> <span class="kn">import</span> <span class="n">class_distribution</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">NonExistentKey</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="n">DIRNAME</span> <span class="o">=</span> <span class="s2">&quot;database&quot;</span>
+<span class="n">MODULE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+
+<div class="viewcode-block" id="get_dist_key"><a class="viewcode-back" href="../../../skshapelet.datasets.html#skshapelet.datasets.base.get_dist_key">[docs]</a><span class="k">def</span> <span class="nf">get_dist_key</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A static method to return the key that stored the required value or return -1 if not exist.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dist: dist</span>
+<span class="sd">            A dist that may contain some key-value pairs.</span>
+<span class="sd">        value: string</span>
+<span class="sd">            The class label.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: int</span>
+<span class="sd">            The integer that stored the associated with the value or returns -1 if not exist.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">dist</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="n">val</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">key</span>
+    <span class="k">return</span> <span class="n">NonExistentKey</span></div>
+
+
+<div class="viewcode-block" id="pre_processing"><a class="viewcode-back" href="../../../skshapelet.datasets.html#skshapelet.datasets.base.pre_processing">[docs]</a><span class="k">def</span> <span class="nf">pre_processing</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A static method to pre-process the y.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        y: string</span>
+<span class="sd">            A string that may contain characters or integer.</span>
+<span class="sd">        dist: dist_like, optional</span>
+<span class="sd">            A dist that may contain some key-value pairs.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: ndarray, dist</span>
+<span class="sd">            The numpy array and a dist that have been processed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">distinct_label</span> <span class="o">=</span> <span class="n">class_distribution</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">distinct_label</span><span class="p">))]</span>
+    <span class="n">transform_y</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">dist</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)):</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">get_dist_key</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">is</span> <span class="n">NonExistentKey</span><span class="p">:</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="n">labels</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">dist</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span>
+
+            <span class="n">transform_y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)):</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">get_dist_key</span><span class="p">(</span><span class="n">dist</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+            <span class="n">transform_y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">transform_y</span><span class="p">),</span> <span class="n">dist</span></div>
+
+
+<div class="viewcode-block" id="load_dataset"><a class="viewcode-back" href="../../../skshapelet.datasets.html#skshapelet.datasets.base.load_dataset">[docs]</a><span class="k">def</span> <span class="nf">load_dataset</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">split</span><span class="p">,</span> <span class="n">return_X_y</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A static method to load dataset by name.</span>
+<span class="sd">    This mirrors the sktime implementation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name: string</span>
+<span class="sd">            The name of dataset.</span>
+<span class="sd">        split: string</span>
+<span class="sd">            Whether it belongs to the train or test set or none of them.</span>
+<span class="sd">        return_X_y: bool</span>
+<span class="sd">            Whether should return true or false.</span>
+<span class="sd">        dist: dist, optional</span>
+<span class="sd">            A dist that may contain some key-value pairs.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: ndarray, ndarray, dist</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">extract_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">DIRNAME</span><span class="p">)</span>
+    <span class="n">local_module</span> <span class="o">=</span> <span class="n">MODULE</span>
+    <span class="n">local_dirname</span> <span class="o">=</span> <span class="n">DIRNAME</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">extract_path</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">extract_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_list_downloaded_datasets</span><span class="p">(</span><span class="n">extract_path</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://timeseriesclassification.com/Downloads/</span><span class="si">%s</span><span class="s2">.zip&quot;</span> <span class="o">%</span> <span class="n">name</span>
+        <span class="c1"># This also tests the validitiy of the URL, can&#39;t rely on the html</span>
+        <span class="c1"># status code as it always returns 200</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_download_and_extract</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">extract_path</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">BadZipFile</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Invalid dataset name. Please make sure the dataset is &quot;</span>
+                <span class="s2">&quot;available on http://timeseriesclassification.com/.&quot;</span>
+            <span class="p">)</span> <span class="kn">from</span> <span class="nn">e</span>
+
+    <span class="k">if</span> <span class="n">split</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">):</span>
+        <span class="n">fname</span> <span class="o">=</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">split</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;.ts&quot;</span>
+        <span class="n">abspath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_module</span><span class="p">,</span> <span class="n">local_dirname</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+        <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_from_tsfile_to_dataframe</span><span class="p">(</span><span class="n">abspath</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="nb">float</span> <span class="ow">or</span> <span class="n">y</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span><span class="p">,</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">pre_processing</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid `split` value&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Return appropriately</span>
+    <span class="k">if</span> <span class="n">return_X_y</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">dist</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">X</span><span class="p">[</span><span class="s2">&quot;class_val&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">dist</span></div>
+
+
+<span class="k">def</span> <span class="nf">_list_downloaded_datasets</span><span class="p">(</span><span class="n">extract_path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a list of all the currently downloaded datasets.</span>
+<span class="sd">    This mirrors the sktime implementation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        extract_path: string</span>
+<span class="sd">            The specific extract path.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        datasets : list</span>
+<span class="sd">            List of the names of datasets downloaded.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">extract_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">data_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">DIRNAME</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data_dir</span> <span class="o">=</span> <span class="n">extract_path</span>
+    <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">path</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">path</span><span class="p">))</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">datasets</span>
+
+
+<span class="k">def</span> <span class="nf">_download_and_extract</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">extract_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Helper function for downloading and unzipping datasets</span>
+<span class="sd">    This mirrors the sktime implementation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        url : string</span>
+<span class="sd">            Url pointing to file to download</span>
+<span class="sd">        extract_path : string, optional (default: None)</span>
+<span class="sd">            path to extract downloaded zip to, None defaults</span>
+<span class="sd">            to sktime/datasets/data</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        extract_path : string or None</span>
+<span class="sd">            if successful, string containing the path of the extracted file, None</span>
+<span class="sd">            if it wasn&#39;t succesful.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">dl_dir</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">()</span>
+    <span class="n">zip_file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dl_dir</span><span class="p">,</span> <span class="n">file_name</span><span class="p">)</span>
+    <span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">zip_file_name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">extract_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">extract_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">DIRNAME</span> <span class="o">+</span> <span class="s2">&quot;/</span><span class="si">%s</span><span class="s2">/&quot;</span> <span class="o">%</span> <span class="n">file_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">extract_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">extract_path</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">/&quot;</span> <span class="o">%</span> <span class="n">file_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">extract_path</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">extract_path</span><span class="p">)</span>
+        <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">zip_file_name</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">extract_path</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">dl_dir</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">extract_path</span>
+    <span class="k">except</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">BadZipFile</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">dl_dir</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">extract_path</span><span class="p">):</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">extract_path</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">BadZipFile</span><span class="p">(</span>
+            <span class="s2">&quot;Could not unzip dataset. Please make sure the URL is valid.&quot;</span>
+        <span class="p">)</span>
+</pre></div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d8bbf5861d671d414e1a.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Miao Cai.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

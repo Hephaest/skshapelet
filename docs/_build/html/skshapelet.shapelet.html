@@ -1,0 +1,1024 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skshapelet.shapelet package &#8212; skshapelet</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d8bbf5861d671d414e1a.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="skshapelet.statistics package" href="skshapelet.statistics.html" />
+    <link rel="prev" title="skshapelet.datasets package" href="skshapelet.datasets.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="index.html">
+      <p class="title">skshapelet</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="modules.html">
+  skshapelet
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2">
+  <a class="reference internal" href="setup.html">
+   setup module
+  </a>
+ </li>
+ <li class="toctree-l2 current active">
+  <a class="reference internal" href="skshapelet.html">
+   skshapelet package
+  </a>
+  <ul class="current">
+   <li class="toctree-l3">
+    <a class="reference internal" href="skshapelet.classifiers.html">
+     skshapelet.classifiers package
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="skshapelet.datasets.html">
+     skshapelet.datasets package
+    </a>
+   </li>
+   <li class="toctree-l3 current active">
+    <a class="current reference internal" href="#">
+     skshapelet.shapelet package
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="skshapelet.statistics.html">
+     skshapelet.statistics package
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="skshapelet.utils.html">
+     skshapelet.utils package
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.shapelet.filehelper">
+   skshapelet.shapelet.filehelper module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.shapelet.shapelet">
+   skshapelet.shapelet.shapelet module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.shapelet.shapelet_set">
+   skshapelet.shapelet.shapelet_set module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.shapelet.shapelet_transform">
+   skshapelet.shapelet.shapelet_transform module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.shapelet">
+   Module contents
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="skshapelet-shapelet-package">
+<h1>skshapelet.shapelet package<a class="headerlink" href="#skshapelet-shapelet-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-skshapelet.shapelet.filehelper">
+<span id="skshapelet-shapelet-filehelper-module"></span><h2>skshapelet.shapelet.filehelper module<a class="headerlink" href="#module-skshapelet.shapelet.filehelper" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="skshapelet.shapelet.filehelper.get_all_index_by_label_from_csv">
+<code class="sig-prename descclassname">skshapelet.shapelet.filehelper.</code><code class="sig-name descname">get_all_index_by_label_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em>, <em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_all_index_by_label_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.filehelper.get_all_index_by_label_from_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.shapelet.filehelper.get_all_labels_from_csv">
+<code class="sig-prename descclassname">skshapelet.shapelet.filehelper.</code><code class="sig-name descname">get_all_labels_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_all_labels_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.filehelper.get_all_labels_from_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.shapelet.filehelper.get_all_shapelets_from_csv">
+<code class="sig-prename descclassname">skshapelet.shapelet.filehelper.</code><code class="sig-name descname">get_all_shapelets_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_all_shapelets_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.filehelper.get_all_shapelets_from_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.shapelet.filehelper.get_shapelet_by_label_index_from_csv">
+<code class="sig-prename descclassname">skshapelet.shapelet.filehelper.</code><code class="sig-name descname">get_shapelet_by_label_index_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_shapelet_by_label_index_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.filehelper.get_shapelet_by_label_index_from_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.shapelet.filehelper.read_best_5_shapelets_from_csv">
+<code class="sig-prename descclassname">skshapelet.shapelet.filehelper.</code><code class="sig-name descname">read_best_5_shapelets_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#read_best_5_shapelets_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.filehelper.read_best_5_shapelets_from_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.shapelet.filehelper.write_shapelets_to_csv">
+<code class="sig-prename descclassname">skshapelet.shapelet.filehelper.</code><code class="sig-name descname">write_shapelets_to_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em>, <em class="sig-param"><span class="n">distinct_class</span></em>, <em class="sig-param"><span class="n">shapelets</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#write_shapelets_to_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.filehelper.write_shapelets_to_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple function to save the shapelets obtained in csv format</p>
+<dl class="simple">
+<dt>dataset_name: string</dt><dd><p>The name of the dataset</p>
+</dd>
+<dt>shapelets: array-like</dt><dd><p>The shapelets obtained for a dataset</p>
+</dd>
+<dt>distinct_class: array-like</dt><dd><p>The distinct class of shapelets</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.shapelet.shapelet">
+<span id="skshapelet-shapelet-shapelet-module"></span><h2>skshapelet.shapelet.shapelet module<a class="headerlink" href="#module-skshapelet.shapelet.shapelet" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="skshapelet.shapelet.shapelet.Shapelet">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.shapelet.shapelet.</code><code class="sig-name descname">Shapelet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_pos</span></em>, <em class="sig-param"><span class="n">length</span></em>, <em class="sig-param"><span class="n">id</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">info_gain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet.Shapelet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The class to describe shapelet behaviours.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>start_pos: int</dt><dd><p>The index of the start position.</p>
+</dd>
+<dt>length: int</dt><dd><p>The length of the shapelet.</p>
+</dd>
+<dt>id: int, optional</dt><dd><p>The index of the time series dataset.</p>
+</dd>
+<dt>info_gain: int, optional</dt><dd><p>The information gain of the shapelet.</p>
+</dd>
+<dt>data: ndarray, optional</dt><dd><p>Mean array or z-score array of the shapelet.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet.Shapelet.is_intersection">
+<code class="sig-name descname">is_intersection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.is_intersection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet.Shapelet.is_intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find whether these 2 shapelets have overlapped.
+Args:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>other: Shapelet</dt><dd><p>Another shapelet.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: Bool</dt><dd><p>The check result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet.Shapelet.is_self">
+<code class="sig-name descname">is_self</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.is_self"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet.Shapelet.is_self" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet.Shapelet.is_similar">
+<code class="sig-name descname">is_similar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.is_similar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet.Shapelet.is_similar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find whether these 2 shapelets are similar.
+Args:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>other: Shapelet</dt><dd><p>Another shapelet.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: Bool</dt><dd><p>The check result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet.Shapelet.set_data">
+<code class="sig-name descname">set_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.set_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet.Shapelet.set_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet.Shapelet.set_id">
+<code class="sig-name descname">set_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.set_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet.Shapelet.set_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet.Shapelet.set_ig">
+<code class="sig-name descname">set_ig</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ig</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.set_ig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet.Shapelet.set_ig" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet.Shapelet.set_label">
+<code class="sig-name descname">set_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.set_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet.Shapelet.set_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.shapelet.shapelet_set">
+<span id="skshapelet-shapelet-shapelet-set-module"></span><h2>skshapelet.shapelet.shapelet_set module<a class="headerlink" href="#module-skshapelet.shapelet.shapelet_set" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="skshapelet.shapelet.shapelet_set.ShapeletSet">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.shapelet.shapelet_set.</code><code class="sig-name descname">ShapeletSet</code><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_set.html#ShapeletSet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_set.ShapeletSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The class to describe ShapeletSet behaviours.
+To save time, we sort the list each time we insert a shapelet.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>shapelets: list</dt><dd><p>A list to store the acceptable shapelet.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_set.ShapeletSet.accept">
+<code class="sig-name descname">accept</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shapelet</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_set.html#ShapeletSet.accept"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_set.ShapeletSet.accept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_set.ShapeletSet.discard">
+<code class="sig-name descname">discard</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_set.html#ShapeletSet.discard"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_set.ShapeletSet.discard" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_set.ShapeletSet.get_shapelets">
+<code class="sig-name descname">get_shapelets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_set.html#ShapeletSet.get_shapelets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_set.ShapeletSet.get_shapelets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_set.ShapeletSet.get_size">
+<code class="sig-name descname">get_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_set.html#ShapeletSet.get_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_set.ShapeletSet.get_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_set.ShapeletSet.last_shapelet">
+<code class="sig-name descname">last_shapelet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_set.html#ShapeletSet.last_shapelet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_set.ShapeletSet.last_shapelet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.shapelet.shapelet_transform">
+<span id="skshapelet-shapelet-shapelet-transform-module"></span><h2>skshapelet.shapelet.shapelet_transform module<a class="headerlink" href="#module-skshapelet.shapelet.shapelet_transform" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.shapelet.shapelet_transform.</code><code class="sig-name descname">BinaryShapeletTransform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em>, <em class="sig-param"><span class="n">min_shapelet_length</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">max_shapelet_length</span><span class="o">=</span><span class="default_value">inf</span></em>, <em class="sig-param"><span class="n">max_shapelets_to_store_per_class</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">time_transform_in_mins</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_candidates_to_sample_per_case</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">random_seed</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sktime.transformations.base._PanelToTabularTransformer</span></code></p>
+<p>BinaryShapeletTransform.
+This implementation is based on sktime.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>min_shapelet_length: int, optional</dt><dd><p>The best so far distance.</p>
+</dd>
+<dt>max_shapelet_length: int, optional</dt><dd><p>The maximum length of the shapelet.</p>
+</dd>
+<dt>max_shapelets_to_store_per_class: int, optional</dt><dd><p>The maximum shapelet size for each class.</p>
+</dd>
+<dt>time_transform_in_mins: int, optional</dt><dd><p>The maximum transformation time.</p>
+</dd>
+<dt>num_candidates_to_sample_per_case: int, optional</dt><dd><p>The maximum candidates for each time series.</p>
+</dd>
+<dt>random_seed: int, optional</dt><dd><p>The random seed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.discard_if_needed">
+<em class="property">static </em><code class="sig-name descname">discard_if_needed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stack</span></em>, <em class="sig-param"><span class="n">num_max_size</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.discard_if_needed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.discard_if_needed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.distance_scan">
+<em class="property">static </em><code class="sig-name descname">distance_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">end</span></em>, <em class="sig-param"><span class="n">other_ts</span></em>, <em class="sig-param"><span class="n">shapelet_len</span></em>, <em class="sig-param"><span class="n">shapelet_data</span></em>, <em class="sig-param"><span class="n">is_univariate</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.distance_scan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.distance_scan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scan distance between 2 time series.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>start: Shapelet</dt><dd><p>Start position.</p>
+</dd>
+<dt>end: ndarray</dt><dd><p>End position.</p>
+</dd>
+<dt>other_ts: ndarray</dt><dd><p>The another time series.</p>
+</dd>
+<dt>shapelet_len: int</dt><dd><p>The length of the shapelet</p>
+</dd>
+<dt>shapelet_data: ndarray</dt><dd><p>The information that shapelet carries with.</p>
+</dd>
+<dt>is_univariate: bool</dt><dd><p>The property of this dataset.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>bsf_dist: float</dt><dd><p>Return the shortest distance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.find_distance">
+<em class="property">static </em><code class="sig-name descname">find_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shapelet</span></em>, <em class="sig-param"><span class="n">other_ts</span></em>, <em class="sig-param"><span class="n">is_univariate</span></em>, <em class="sig-param"><span class="n">shapelet_data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.find_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.find_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the shortest distance.
+The origin point is where the shapelet exactly is. We will scan left first and then scan right.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>shapelet: Shapelet</dt><dd><p>The current candidate.</p>
+</dd>
+<dt>other_ts: ndarray</dt><dd><p>The another time series.</p>
+</dd>
+<dt>is_univariate: bool</dt><dd><p>The property of this dataset.</p>
+</dd>
+<dt>shapelet_data: ndarray</dt><dd><p>The information that shapelet carries.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: float</dt><dd><p>Return the shortest distance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit transformer to X and y.</p>
+<p>By default, fit is empty. Fittable transformations overwrite fit method.</p>
+<dl class="simple">
+<dt>Z<span class="classifier">TimeSeries</span></dt><dd><p>Data to be transformed</p>
+</dd>
+<dt>X<span class="classifier">TimeSeries, optional (default=None)</span></dt><dd><p>Extra data</p>
+</dd>
+</dl>
+<p>self : a fitted instance of the estimator</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.generate_candidates_by_cache">
+<em class="property">static </em><code class="sig-name descname">generate_candidates_by_cache</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X_len</span></em>, <em class="sig-param"><span class="n">min_len</span></em>, <em class="sig-param"><span class="n">max_len</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.generate_candidates_by_cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.generate_candidates_by_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate candidates one time, use it forever:)</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>X_len: int</dt><dd><p>The length of current time series.</p>
+</dd>
+<dt>min_len: int</dt><dd><p>The minimum length.</p>
+</dd>
+<dt>max_len: int</dt><dd><p>The maximum length.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>Contain all possible candidates with a specific length range.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.get_shapelets">
+<code class="sig-name descname">get_shapelets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.get_shapelets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.get_shapelets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.random_shapelet_selection">
+<em class="property">static </em><code class="sig-name descname">random_shapelet_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em>, <em class="sig-param"><span class="n">num_require_per_case</span></em>, <em class="sig-param"><span class="n">random_state</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.random_shapelet_selection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.random_shapelet_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select shapelet by random state.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>candidates: list</dt><dd><p>The list of all possible candidates.</p>
+</dd>
+<dt>num_require_per_case: int</dt><dd><p>The required number of each time series.</p>
+</dd>
+<dt>random_state: RandomState</dt><dd><p>The instance of RandomState.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>Return a list of selected candidates.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.random_shuffle_class_case_policy">
+<em class="property">static </em><code class="sig-name descname">random_shuffle_class_case_policy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">random_state</span></em>, <em class="sig-param"><span class="n">distinct_class</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.random_shuffle_class_case_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.random_shuffle_class_case_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suffle the class case by random state.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>y: ndarray</dt><dd><p>The numpy array.</p>
+</dd>
+<dt>random_state: RandomState</dt><dd><p>The instance of RandomState.</p>
+</dd>
+<dt>distinct_class: list</dt><dd><p>A list contains all distinct class labels.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>num_ins_per_class: int</dt><dd><p>The number of instance in each class.</p>
+</dd>
+<dt>ts_order: list</dt><dd><p>The order of the time series.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.reduce_if_needed">
+<em class="property">static </em><code class="sig-name descname">reduce_if_needed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shapelets</span></em>, <em class="sig-param"><span class="n">num_max_size</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.reduce_if_needed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.reduce_if_needed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.remove_self_similar_shapelets">
+<em class="property">static </em><code class="sig-name descname">remove_self_similar_shapelets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shapelets</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.remove_self_similar_shapelets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.remove_self_similar_shapelets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove self similar shapelets.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>shapelets: list</dt><dd><p>The list of Shapelet instances.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>distinct_shapelets: list</dt><dd><p>Return a list that contains distinct Shapelet instances.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform a set of data into distances to each extracted shapelet.
+Test dataset should be transformed as a distance matrix.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>x: pandas DataFrame</dt><dd><p>The input dataframe to transform</p>
+</dd>
+<dt>y: pandas DataFrame or None, optional</dt><dd><p>The test class label array.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: pandas DataFrame</dt><dd><p>The transformed dataframe in tabular format.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.update_ig_threshold">
+<em class="property">static </em><code class="sig-name descname">update_ig_threshold</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">threshold</span></em>, <em class="sig-param"><span class="n">stack</span></em>, <em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.update_ig_threshold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.shapelet_transform.BinaryShapeletTransform.update_ig_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the information gain threshold if needed.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>threshold: float</dt><dd><p>The baseline of the information gain.</p>
+</dd>
+<dt>stack: list</dt><dd><p>The list stores shapelets.</p>
+</dd>
+<dt>label: int</dt><dd><p>The label of the current class.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>threshold: float</dt><dd><p>Return new information gain threshold.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.shapelet">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-skshapelet.shapelet" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.shapelet.</code><code class="sig-name descname">BinaryShapeletTransform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em>, <em class="sig-param"><span class="n">min_shapelet_length</span><span class="o">=</span><span class="default_value">3</span></em>, <em class="sig-param"><span class="n">max_shapelet_length</span><span class="o">=</span><span class="default_value">inf</span></em>, <em class="sig-param"><span class="n">max_shapelets_to_store_per_class</span><span class="o">=</span><span class="default_value">200</span></em>, <em class="sig-param"><span class="n">time_transform_in_mins</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">num_candidates_to_sample_per_case</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">random_seed</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sktime.transformations.base._PanelToTabularTransformer</span></code></p>
+<p>BinaryShapeletTransform.
+This implementation is based on sktime.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>min_shapelet_length: int, optional</dt><dd><p>The best so far distance.</p>
+</dd>
+<dt>max_shapelet_length: int, optional</dt><dd><p>The maximum length of the shapelet.</p>
+</dd>
+<dt>max_shapelets_to_store_per_class: int, optional</dt><dd><p>The maximum shapelet size for each class.</p>
+</dd>
+<dt>time_transform_in_mins: int, optional</dt><dd><p>The maximum transformation time.</p>
+</dd>
+<dt>num_candidates_to_sample_per_case: int, optional</dt><dd><p>The maximum candidates for each time series.</p>
+</dd>
+<dt>random_seed: int, optional</dt><dd><p>The random seed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform.discard_if_needed">
+<em class="property">static </em><code class="sig-name descname">discard_if_needed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stack</span></em>, <em class="sig-param"><span class="n">num_max_size</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.discard_if_needed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform.discard_if_needed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform.distance_scan">
+<em class="property">static </em><code class="sig-name descname">distance_scan</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start</span></em>, <em class="sig-param"><span class="n">end</span></em>, <em class="sig-param"><span class="n">other_ts</span></em>, <em class="sig-param"><span class="n">shapelet_len</span></em>, <em class="sig-param"><span class="n">shapelet_data</span></em>, <em class="sig-param"><span class="n">is_univariate</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.distance_scan"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform.distance_scan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scan distance between 2 time series.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>start: Shapelet</dt><dd><p>Start position.</p>
+</dd>
+<dt>end: ndarray</dt><dd><p>End position.</p>
+</dd>
+<dt>other_ts: ndarray</dt><dd><p>The another time series.</p>
+</dd>
+<dt>shapelet_len: int</dt><dd><p>The length of the shapelet</p>
+</dd>
+<dt>shapelet_data: ndarray</dt><dd><p>The information that shapelet carries with.</p>
+</dd>
+<dt>is_univariate: bool</dt><dd><p>The property of this dataset.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>bsf_dist: float</dt><dd><p>Return the shortest distance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform.find_distance">
+<em class="property">static </em><code class="sig-name descname">find_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shapelet</span></em>, <em class="sig-param"><span class="n">other_ts</span></em>, <em class="sig-param"><span class="n">is_univariate</span></em>, <em class="sig-param"><span class="n">shapelet_data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.find_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform.find_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the shortest distance.
+The origin point is where the shapelet exactly is. We will scan left first and then scan right.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>shapelet: Shapelet</dt><dd><p>The current candidate.</p>
+</dd>
+<dt>other_ts: ndarray</dt><dd><p>The another time series.</p>
+</dd>
+<dt>is_univariate: bool</dt><dd><p>The property of this dataset.</p>
+</dd>
+<dt>shapelet_data: ndarray</dt><dd><p>The information that shapelet carries.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: float</dt><dd><p>Return the shortest distance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform.fit">
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit transformer to X and y.</p>
+<p>By default, fit is empty. Fittable transformations overwrite fit method.</p>
+<dl class="simple">
+<dt>Z<span class="classifier">TimeSeries</span></dt><dd><p>Data to be transformed</p>
+</dd>
+<dt>X<span class="classifier">TimeSeries, optional (default=None)</span></dt><dd><p>Extra data</p>
+</dd>
+</dl>
+<p>self : a fitted instance of the estimator</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform.generate_candidates_by_cache">
+<em class="property">static </em><code class="sig-name descname">generate_candidates_by_cache</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X_len</span></em>, <em class="sig-param"><span class="n">min_len</span></em>, <em class="sig-param"><span class="n">max_len</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.generate_candidates_by_cache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform.generate_candidates_by_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate candidates one time, use it forever:)</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>X_len: int</dt><dd><p>The length of current time series.</p>
+</dd>
+<dt>min_len: int</dt><dd><p>The minimum length.</p>
+</dd>
+<dt>max_len: int</dt><dd><p>The maximum length.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>Contain all possible candidates with a specific length range.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform.get_shapelets">
+<code class="sig-name descname">get_shapelets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.get_shapelets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform.get_shapelets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform.random_shapelet_selection">
+<em class="property">static </em><code class="sig-name descname">random_shapelet_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em>, <em class="sig-param"><span class="n">num_require_per_case</span></em>, <em class="sig-param"><span class="n">random_state</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.random_shapelet_selection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform.random_shapelet_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select shapelet by random state.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>candidates: list</dt><dd><p>The list of all possible candidates.</p>
+</dd>
+<dt>num_require_per_case: int</dt><dd><p>The required number of each time series.</p>
+</dd>
+<dt>random_state: RandomState</dt><dd><p>The instance of RandomState.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>Return a list of selected candidates.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform.random_shuffle_class_case_policy">
+<em class="property">static </em><code class="sig-name descname">random_shuffle_class_case_policy</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">random_state</span></em>, <em class="sig-param"><span class="n">distinct_class</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.random_shuffle_class_case_policy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform.random_shuffle_class_case_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suffle the class case by random state.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>y: ndarray</dt><dd><p>The numpy array.</p>
+</dd>
+<dt>random_state: RandomState</dt><dd><p>The instance of RandomState.</p>
+</dd>
+<dt>distinct_class: list</dt><dd><p>A list contains all distinct class labels.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>num_ins_per_class: int</dt><dd><p>The number of instance in each class.</p>
+</dd>
+<dt>ts_order: list</dt><dd><p>The order of the time series.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform.reduce_if_needed">
+<em class="property">static </em><code class="sig-name descname">reduce_if_needed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shapelets</span></em>, <em class="sig-param"><span class="n">num_max_size</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.reduce_if_needed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform.reduce_if_needed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform.remove_self_similar_shapelets">
+<em class="property">static </em><code class="sig-name descname">remove_self_similar_shapelets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shapelets</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.remove_self_similar_shapelets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform.remove_self_similar_shapelets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove self similar shapelets.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>shapelets: list</dt><dd><p>The list of Shapelet instances.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>distinct_shapelets: list</dt><dd><p>Return a list that contains distinct Shapelet instances.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">y</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform a set of data into distances to each extracted shapelet.
+Test dataset should be transformed as a distance matrix.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>x: pandas DataFrame</dt><dd><p>The input dataframe to transform</p>
+</dd>
+<dt>y: pandas DataFrame or None, optional</dt><dd><p>The test class label array.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: pandas DataFrame</dt><dd><p>The transformed dataframe in tabular format.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.BinaryShapeletTransform.update_ig_threshold">
+<em class="property">static </em><code class="sig-name descname">update_ig_threshold</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">threshold</span></em>, <em class="sig-param"><span class="n">stack</span></em>, <em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_transform.html#BinaryShapeletTransform.update_ig_threshold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.BinaryShapeletTransform.update_ig_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the information gain threshold if needed.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>threshold: float</dt><dd><p>The baseline of the information gain.</p>
+</dd>
+<dt>stack: list</dt><dd><p>The list stores shapelets.</p>
+</dd>
+<dt>label: int</dt><dd><p>The label of the current class.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>threshold: float</dt><dd><p>Return new information gain threshold.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="skshapelet.shapelet.Shapelet">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.shapelet.</code><code class="sig-name descname">Shapelet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">start_pos</span></em>, <em class="sig-param"><span class="n">length</span></em>, <em class="sig-param"><span class="n">id</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">info_gain</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.Shapelet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The class to describe shapelet behaviours.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>start_pos: int</dt><dd><p>The index of the start position.</p>
+</dd>
+<dt>length: int</dt><dd><p>The length of the shapelet.</p>
+</dd>
+<dt>id: int, optional</dt><dd><p>The index of the time series dataset.</p>
+</dd>
+<dt>info_gain: int, optional</dt><dd><p>The information gain of the shapelet.</p>
+</dd>
+<dt>data: ndarray, optional</dt><dd><p>Mean array or z-score array of the shapelet.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="skshapelet.shapelet.Shapelet.is_intersection">
+<code class="sig-name descname">is_intersection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.is_intersection"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.Shapelet.is_intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find whether these 2 shapelets have overlapped.
+Args:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>other: Shapelet</dt><dd><p>Another shapelet.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: Bool</dt><dd><p>The check result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.Shapelet.is_self">
+<code class="sig-name descname">is_self</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.is_self"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.Shapelet.is_self" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.Shapelet.is_similar">
+<code class="sig-name descname">is_similar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.is_similar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.Shapelet.is_similar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find whether these 2 shapelets are similar.
+Args:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>other: Shapelet</dt><dd><p>Another shapelet.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: Bool</dt><dd><p>The check result.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.Shapelet.set_data">
+<code class="sig-name descname">set_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.set_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.Shapelet.set_data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.Shapelet.set_id">
+<code class="sig-name descname">set_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.set_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.Shapelet.set_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.Shapelet.set_ig">
+<code class="sig-name descname">set_ig</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ig</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.set_ig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.Shapelet.set_ig" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.Shapelet.set_label">
+<code class="sig-name descname">set_label</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet.html#Shapelet.set_label"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.Shapelet.set_label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="skshapelet.shapelet.ShapeletSet">
+<em class="property">class </em><code class="sig-prename descclassname">skshapelet.shapelet.</code><code class="sig-name descname">ShapeletSet</code><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_set.html#ShapeletSet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.ShapeletSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The class to describe ShapeletSet behaviours.
+To save time, we sort the list each time we insert a shapelet.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>shapelets: list</dt><dd><p>A list to store the acceptable shapelet.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="skshapelet.shapelet.ShapeletSet.accept">
+<code class="sig-name descname">accept</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">shapelet</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_set.html#ShapeletSet.accept"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.ShapeletSet.accept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.ShapeletSet.discard">
+<code class="sig-name descname">discard</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_set.html#ShapeletSet.discard"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.ShapeletSet.discard" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.ShapeletSet.get_shapelets">
+<code class="sig-name descname">get_shapelets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_set.html#ShapeletSet.get_shapelets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.ShapeletSet.get_shapelets" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.ShapeletSet.get_size">
+<code class="sig-name descname">get_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_set.html#ShapeletSet.get_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.ShapeletSet.get_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="skshapelet.shapelet.ShapeletSet.last_shapelet">
+<code class="sig-name descname">last_shapelet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/shapelet_set.html#ShapeletSet.last_shapelet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.ShapeletSet.last_shapelet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.shapelet.get_all_index_by_label_from_csv">
+<code class="sig-prename descclassname">skshapelet.shapelet.</code><code class="sig-name descname">get_all_index_by_label_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em>, <em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_all_index_by_label_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.get_all_index_by_label_from_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.shapelet.get_all_labels_from_csv">
+<code class="sig-prename descclassname">skshapelet.shapelet.</code><code class="sig-name descname">get_all_labels_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_all_labels_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.get_all_labels_from_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.shapelet.get_shapelet_by_label_index_from_csv">
+<code class="sig-prename descclassname">skshapelet.shapelet.</code><code class="sig-name descname">get_shapelet_by_label_index_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_shapelet_by_label_index_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.get_shapelet_by_label_index_from_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.shapelet.read_best_5_shapelets_from_csv">
+<code class="sig-prename descclassname">skshapelet.shapelet.</code><code class="sig-name descname">read_best_5_shapelets_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#read_best_5_shapelets_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.read_best_5_shapelets_from_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="skshapelet.datasets.html" title="previous page">skshapelet.datasets package</a>
+    <a class='right-next' id="next-link" href="skshapelet.statistics.html" title="next page">skshapelet.statistics package</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d8bbf5861d671d414e1a.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Miao Cai.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

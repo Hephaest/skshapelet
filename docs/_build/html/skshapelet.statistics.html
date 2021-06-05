@@ -1,0 +1,485 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skshapelet.statistics package &#8212; skshapelet</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d8bbf5861d671d414e1a.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="skshapelet.utils package" href="skshapelet.utils.html" />
+    <link rel="prev" title="skshapelet.shapelet package" href="skshapelet.shapelet.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="index.html">
+      <p class="title">skshapelet</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="modules.html">
+  skshapelet
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l2">
+  <a class="reference internal" href="setup.html">
+   setup module
+  </a>
+ </li>
+ <li class="toctree-l2 current active">
+  <a class="reference internal" href="skshapelet.html">
+   skshapelet package
+  </a>
+  <ul class="current">
+   <li class="toctree-l3">
+    <a class="reference internal" href="skshapelet.classifiers.html">
+     skshapelet.classifiers package
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="skshapelet.datasets.html">
+     skshapelet.datasets package
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="skshapelet.shapelet.html">
+     skshapelet.shapelet package
+    </a>
+   </li>
+   <li class="toctree-l3 current active">
+    <a class="current reference internal" href="#">
+     skshapelet.statistics package
+    </a>
+   </li>
+   <li class="toctree-l3">
+    <a class="reference internal" href="skshapelet.utils.html">
+     skshapelet.utils package
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.statistics.distance">
+   skshapelet.statistics.distance module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.statistics.early_abandon">
+   skshapelet.statistics.early_abandon module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.statistics.entropy">
+   skshapelet.statistics.entropy module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.statistics.information_gain">
+   skshapelet.statistics.information_gain module
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-skshapelet.statistics">
+   Module contents
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="skshapelet-statistics-package">
+<h1>skshapelet.statistics package<a class="headerlink" href="#skshapelet-statistics-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-skshapelet.statistics.distance">
+<span id="skshapelet-statistics-distance-module"></span><h2>skshapelet.statistics.distance module<a class="headerlink" href="#module-skshapelet.statistics.distance" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="skshapelet.statistics.distance.euclidean_distance">
+<code class="sig-prename descclassname">skshapelet.statistics.distance.</code><code class="sig-name descname">euclidean_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">this</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/statistics/distance.html#euclidean_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.statistics.distance.euclidean_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Euclidean distance between 2 1-D arrays.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>this: ndarray</dt><dd><p>The array.</p>
+</dd>
+<dt>other: ndarray</dt><dd><p>The comparative array.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: float</dt><dd><p>The square of Euclidean distance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.statistics.distance.mahalanobis_distance">
+<code class="sig-prename descclassname">skshapelet.statistics.distance.</code><code class="sig-name descname">mahalanobis_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">mean</span></em>, <em class="sig-param"><span class="n">inv_cov</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/statistics/distance.html#mahalanobis_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.statistics.distance.mahalanobis_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Mahalanobis distance between 2 1-D arrays.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>X: ndarray</dt><dd><p>The comparative array.</p>
+</dd>
+<dt>mean: float</dt><dd><p>The mean of the array.</p>
+</dd>
+<dt>inv_cov:</dt><dd><p>Inverse covariance matrix related to the array.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: float</dt><dd><p>The square of Mahalanobis distance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.statistics.distance.zscore">
+<code class="sig-prename descclassname">skshapelet.statistics.distance.</code><code class="sig-name descname">zscore</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">ddof</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/statistics/distance.html#zscore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.statistics.distance.zscore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the z-score of 1-D array.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>a: ndarray</dt><dd><p>The required array.</p>
+</dd>
+<dt>axis: int, optional</dt><dd><p>The axis of the array.</p>
+</dd>
+<dt>ddof: int, optional</dt><dd><p>Means Delta Degrees of Freedom.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: ndarray</dt><dd><p>The z-scores, standardized by mean and standard deviation of input array a.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.statistics.early_abandon">
+<span id="skshapelet-statistics-early-abandon-module"></span><h2>skshapelet.statistics.early_abandon module<a class="headerlink" href="#module-skshapelet.statistics.early_abandon" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="skshapelet.statistics.early_abandon.binary_information_gain">
+<code class="sig-prename descclassname">skshapelet.statistics.early_abandon.</code><code class="sig-name descname">binary_information_gain</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">orderline</span></em>, <em class="sig-param"><span class="n">num_this_class</span></em>, <em class="sig-param"><span class="n">num_other_class</span></em>, <em class="sig-param"><span class="n">total_num_this_class</span></em>, <em class="sig-param"><span class="n">total_num_other_class</span></em>, <em class="sig-param"><span class="n">ig_threshold</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/statistics/early_abandon.html#binary_information_gain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.statistics.early_abandon.binary_information_gain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the information gain.
+The idea is that we apply the KNN algorithm. We put the rest of class A to split left and put B to split right, respectively.
+However, we also need to switch again since we don’t know where class A belongs.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>orderline: list</dt><dd><p>The list of distance with each time series.</p>
+</dd>
+<dt>num_this_class: int</dt><dd><p>The number of this class.</p>
+</dd>
+<dt>num_other_class:</dt><dd><p>The number of other classes.</p>
+</dd>
+<dt>total_num_this_class:</dt><dd><p>The total number of this class.</p>
+</dd>
+<dt>total_num_other_class:</dt><dd><p>The total number of other classes.</p>
+</dd>
+<dt>ig_threshold: float</dt><dd><p>The baseline of information gain.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: bool</dt><dd><p>Whether the current candidate should be rejected.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.statistics.early_abandon.euclidean_distance">
+<code class="sig-prename descclassname">skshapelet.statistics.early_abandon.</code><code class="sig-name descname">euclidean_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">this_set</span></em>, <em class="sig-param"><span class="n">other_set</span></em>, <em class="sig-param"><span class="n">bsf_dist</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/statistics/early_abandon.html#euclidean_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.statistics.early_abandon.euclidean_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Euclidean distance between 2 1-D arrays.
+If the distance is larger than bsf_dist, then we end the calculation and return the bsf_dist.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>this_set: ndarray</dt><dd><p>The array</p>
+</dd>
+<dt>other_set: ndarray</dt><dd><p>The comparative array.</p>
+</dd>
+<dt>bsf_dist:</dt><dd><p>The best so far distance.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: float</dt><dd><p>The accumulation of Euclidean distance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.statistics.early_abandon.mahalanobis_distance">
+<code class="sig-prename descclassname">skshapelet.statistics.early_abandon.</code><code class="sig-name descname">mahalanobis_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">mean</span></em>, <em class="sig-param"><span class="n">inv_cov</span></em>, <em class="sig-param"><span class="n">bsf_dist</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/statistics/early_abandon.html#mahalanobis_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.statistics.early_abandon.mahalanobis_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Mahalanobis distance between 2 1-D arrays.
+If the distance is larger than bsf_dist, then we end the calculation and return the bsf_dist.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>X: ndarray</dt><dd><p>The comparative array.</p>
+</dd>
+<dt>mean: ndarray</dt><dd><p>The mean array of the array.</p>
+</dd>
+<dt>inv_cov:</dt><dd><p>Inverse covariance matrix related to the array.</p>
+</dd>
+<dt>bsf_dist:</dt><dd><p>The best so far distance.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: float</dt><dd><p>The accumulation of Mahalanobis distance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.statistics.entropy">
+<span id="skshapelet-statistics-entropy-module"></span><h2>skshapelet.statistics.entropy module<a class="headerlink" href="#module-skshapelet.statistics.entropy" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="skshapelet.statistics.entropy.entropy">
+<code class="sig-prename descclassname">skshapelet.statistics.entropy.</code><code class="sig-name descname">entropy</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">classes</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/statistics/entropy.html#entropy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.statistics.entropy.entropy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the entropy.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>classes: list</dt><dd><p>The list of the number of different classes.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: float</dt><dd><p>The entropy.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.statistics.information_gain">
+<span id="skshapelet-statistics-information-gain-module"></span><h2>skshapelet.statistics.information_gain module<a class="headerlink" href="#module-skshapelet.statistics.information_gain" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="skshapelet.statistics.information_gain.binary_information_gain">
+<code class="sig-prename descclassname">skshapelet.statistics.information_gain.</code><code class="sig-name descname">binary_information_gain</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">orderline</span></em>, <em class="sig-param"><span class="n">total_num_this_class</span></em>, <em class="sig-param"><span class="n">total_num_other_class</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/statistics/information_gain.html#binary_information_gain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.statistics.information_gain.binary_information_gain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the information gain.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>orderline: list</dt><dd><p>The list of distance with each time series.</p>
+</dd>
+<dt>total_num_this_class:</dt><dd><p>The total number of this class.</p>
+</dd>
+<dt>total_num_other_class:</dt><dd><p>The total number of other classes.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>bsf_ig: float</dt><dd><p>The best so far information gain.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-skshapelet.statistics">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-skshapelet.statistics" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="skshapelet.statistics.euclidean_distance">
+<code class="sig-prename descclassname">skshapelet.statistics.</code><code class="sig-name descname">euclidean_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">this</span></em>, <em class="sig-param"><span class="n">other</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/statistics/distance.html#euclidean_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.statistics.euclidean_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Euclidean distance between 2 1-D arrays.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>this: ndarray</dt><dd><p>The array.</p>
+</dd>
+<dt>other: ndarray</dt><dd><p>The comparative array.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: float</dt><dd><p>The square of Euclidean distance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.statistics.mahalanobis_distance">
+<code class="sig-prename descclassname">skshapelet.statistics.</code><code class="sig-name descname">mahalanobis_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">X</span></em>, <em class="sig-param"><span class="n">mean</span></em>, <em class="sig-param"><span class="n">inv_cov</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/statistics/distance.html#mahalanobis_distance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.statistics.mahalanobis_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the Mahalanobis distance between 2 1-D arrays.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>X: ndarray</dt><dd><p>The comparative array.</p>
+</dd>
+<dt>mean: float</dt><dd><p>The mean of the array.</p>
+</dd>
+<dt>inv_cov:</dt><dd><p>Inverse covariance matrix related to the array.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: float</dt><dd><p>The square of Mahalanobis distance.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="skshapelet.statistics.zscore">
+<code class="sig-prename descclassname">skshapelet.statistics.</code><code class="sig-name descname">zscore</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span></em>, <em class="sig-param"><span class="n">axis</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">ddof</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/statistics/distance.html#zscore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.statistics.zscore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the z-score of 1-D array.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>a: ndarray</dt><dd><p>The required array.</p>
+</dd>
+<dt>axis: int, optional</dt><dd><p>The axis of the array.</p>
+</dd>
+<dt>ddof: int, optional</dt><dd><p>Means Delta Degrees of Freedom.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: ndarray</dt><dd><p>The z-scores, standardized by mean and standard deviation of input array a.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="skshapelet.shapelet.html" title="previous page">skshapelet.shapelet package</a>
+    <a class='right-next' id="next-link" href="skshapelet.utils.html" title="next page">skshapelet.utils package</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d8bbf5861d671d414e1a.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Miao Cai.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skshapelet.shapelet.filehelper &#8212; skshapelet</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.101715efdecc9b59cb6e1ddfa685c31f.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.d8bbf5861d671d414e1a.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="../../../index.html">
+      <p class="title">skshapelet</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../modules.html">
+  skshapelet
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for skshapelet.shapelet.filehelper</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">csv</span><span class="o">,</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">skshapelet.shapelet.shapelet_set</span> <span class="kn">import</span> <span class="n">ShapeletSet</span>
+
+<span class="n">MODULE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
+<span class="n">ARCHIVE_NAME</span> <span class="o">=</span> <span class="s2">&quot;shapelet&quot;</span>
+
+<div class="viewcode-block" id="write_shapelets_to_csv"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.filehelper.write_shapelets_to_csv">[docs]</a><span class="k">def</span> <span class="nf">write_shapelets_to_csv</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">distinct_class</span><span class="p">,</span> <span class="n">shapelets</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple function to save the shapelets obtained in csv format</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dataset_name: string</span>
+<span class="sd">        The name of the dataset</span>
+<span class="sd">    shapelets: array-like</span>
+<span class="sd">        The shapelets obtained for a dataset</span>
+<span class="sd">    distinct_class: array-like</span>
+<span class="sd">        The distinct class of shapelets</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create directory in case it doesn&#39;t exists</span>
+    <span class="n">save_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">ARCHIVE_NAME</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">save_path</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
+
+        <span class="n">stack_by_class</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">ShapeletSet</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">distinct_class</span><span class="p">}</span>
+
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">save_path</span> <span class="o">+</span> <span class="s1">&#39;/class_all.csv&#39;</span>
+
+        <span class="c1"># write all shapelets in one file</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">csv_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span><span class="p">)</span>
+            <span class="n">csv_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span>
+                <span class="s2">&quot;start_pos&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;end_pos&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;label&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;info_gain&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;length&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;ref_id&quot;</span><span class="p">,</span>
+            <span class="p">])</span>
+            <span class="c1"># Writing information</span>
+            <span class="k">for</span> <span class="n">shapelet</span> <span class="ow">in</span> <span class="n">shapelets</span><span class="p">:</span>
+                <span class="n">stack_by_class</span><span class="p">[</span><span class="n">shapelet</span><span class="o">.</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">accept</span><span class="p">(</span><span class="n">shapelet</span><span class="p">)</span>
+                <span class="n">csv_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span>
+                    <span class="n">shapelet</span><span class="o">.</span><span class="n">start_pos</span><span class="p">,</span>
+                    <span class="n">shapelet</span><span class="o">.</span><span class="n">end_pos</span><span class="p">,</span>
+                    <span class="n">shapelet</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                    <span class="n">shapelet</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
+                    <span class="n">shapelet</span><span class="o">.</span><span class="n">info_gain</span><span class="p">,</span>
+                    <span class="n">shapelet</span><span class="o">.</span><span class="n">length</span><span class="p">,</span>
+                    <span class="nb">len</span><span class="p">(</span><span class="n">stack_by_class</span><span class="p">[</span><span class="n">shapelet</span><span class="o">.</span><span class="n">label</span><span class="p">]</span><span class="o">.</span><span class="n">get_shapelets</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="p">])</span>
+
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Write distinct shapelets in different files</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">distinct_class</span><span class="p">:</span>
+            <span class="n">file_path</span> <span class="o">=</span> <span class="n">save_path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;class_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;.csv&#39;</span>
+
+            <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack_by_class</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">get_shapelets</span><span class="p">())</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">csv_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span><span class="p">)</span>
+                <span class="n">csv_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span>
+                    <span class="s2">&quot;start_pos&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;end_pos&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;label&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;info_gain&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;length&quot;</span>
+                <span class="p">])</span>
+                <span class="c1"># Writing information</span>
+                <span class="k">for</span> <span class="n">shapelet</span> <span class="ow">in</span> <span class="n">stack_by_class</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">get_shapelets</span><span class="p">():</span>
+                    <span class="n">csv_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span>
+                        <span class="n">shapelet</span><span class="o">.</span><span class="n">start_pos</span><span class="p">,</span>
+                        <span class="n">shapelet</span><span class="o">.</span><span class="n">end_pos</span><span class="p">,</span>
+                        <span class="n">shapelet</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                        <span class="n">shapelet</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
+                        <span class="n">shapelet</span><span class="o">.</span><span class="n">info_gain</span><span class="p">,</span>
+                        <span class="n">shapelet</span><span class="o">.</span><span class="n">length</span>
+                    <span class="p">])</span>
+
+        <span class="c1"># Save labels for further reuse</span>
+        <span class="n">label_path</span> <span class="o">=</span> <span class="n">save_path</span> <span class="o">+</span> <span class="s1">&#39;/labels.csv&#39;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">label_path</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">csv_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span><span class="p">)</span>
+            <span class="n">csv_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="read_best_5_shapelets_from_csv"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.filehelper.read_best_5_shapelets_from_csv">[docs]</a><span class="k">def</span> <span class="nf">read_best_5_shapelets_from_csv</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">):</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">ARCHIVE_NAME</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;/class_all.csv&#39;</span><span class="p">)</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="n">rows</span></div>
+
+<div class="viewcode-block" id="get_all_labels_from_csv"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.filehelper.get_all_labels_from_csv">[docs]</a><span class="k">def</span> <span class="nf">get_all_labels_from_csv</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_id</span><span class="p">):</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">ARCHIVE_NAME</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_id</span> <span class="o">+</span> <span class="s1">&#39;/labels.csv&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv_reader</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="get_all_index_by_label_from_csv"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.filehelper.get_all_index_by_label_from_csv">[docs]</a><span class="k">def</span> <span class="nf">get_all_index_by_label_from_csv</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="n">folder_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">ARCHIVE_NAME</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_id</span><span class="p">)</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">folder_path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;class_&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">csv_reader</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">length</span><span class="p">)]</span></div>
+
+<div class="viewcode-block" id="get_all_shapelets_from_csv"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.filehelper.get_all_shapelets_from_csv">[docs]</a><span class="k">def</span> <span class="nf">get_all_shapelets_from_csv</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_id</span><span class="p">):</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">ARCHIVE_NAME</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_id</span> <span class="o">+</span> <span class="s1">&#39;/class_all.csv&#39;</span><span class="p">)</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span><span class="p">:</span>
+            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">rows</span></div>
+
+<div class="viewcode-block" id="get_shapelet_by_label_index_from_csv"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.filehelper.get_shapelet_by_label_index_from_csv">[docs]</a><span class="k">def</span> <span class="nf">get_shapelet_by_label_index_from_csv</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+    <span class="n">folder_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">ARCHIVE_NAME</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_id</span><span class="p">)</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">folder_path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;class_&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv_reader</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">rows</span><span class="p">[</span><span class="n">index</span><span class="p">]</span></div>
+</pre></div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.d8bbf5861d671d414e1a.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2021, Miao Cai.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
