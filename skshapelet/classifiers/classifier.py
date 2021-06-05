@@ -17,6 +17,7 @@ def random_forest_classifier():
 
 def xgb_classifier():
     """A static method to return the eXtreme Gradient Boosting classifier with default settings.
+    If you want to GPU, please set tree_method as gpu_hist and gpu_id as 0.
 
     Returns:
         output: string, XGBClassifier
