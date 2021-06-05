@@ -179,13 +179,23 @@
 <dl class="py function">
 <dt id="skshapelet.classifiers.classifier.bayesian_network_classifier">
 <code class="sig-prename descclassname">skshapelet.classifiers.classifier.</code><code class="sig-name descname">bayesian_network_classifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/classifiers/classifier.html#bayesian_network_classifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.classifiers.classifier.bayesian_network_classifier" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A static method to return the bayesian network classifier with default settings.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: string, GaussianNB</dt><dd><p>A tuple combined with classifier id and instance of GaussianNB.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="skshapelet.classifiers.classifier.cid_to_classifier">
 <code class="sig-prename descclassname">skshapelet.classifiers.classifier.</code><code class="sig-name descname">cid_to_classifier</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">c_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/classifiers/classifier.html#cid_to_classifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.classifiers.classifier.cid_to_classifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A static method to return the tuple combined with classifier id and classifier instance to follow the Pipeline’s rule.</p>
 <dl class="simple">
+<dt>Args:</dt><dd><p>Id of the current classifier.</p>
+</dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>output: tuple</dt><dd><p>A tuple combined with a specific classifier id and instance of the required classifier.</p>
 </dd>
@@ -197,12 +207,28 @@
 <dl class="py function">
 <dt id="skshapelet.classifiers.classifier.decision_tree_classifier">
 <code class="sig-prename descclassname">skshapelet.classifiers.classifier.</code><code class="sig-name descname">decision_tree_classifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/classifiers/classifier.html#decision_tree_classifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.classifiers.classifier.decision_tree_classifier" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A static method to return the decision tree classifier with default settings.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: string, DecisionTreeClassifier</dt><dd><p>A tuple combined with classifier id and instance of DecisionTreeClassifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="skshapelet.classifiers.classifier.knn_classifier">
 <code class="sig-prename descclassname">skshapelet.classifiers.classifier.</code><code class="sig-name descname">knn_classifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/classifiers/classifier.html#knn_classifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.classifiers.classifier.knn_classifier" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A static method to return the KNN classifier with default settings.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: string, KNeighborsClassifier</dt><dd><p>A tuple combined with classifier id and instance of KNeighborsClassifier.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="skshapelet.classifiers.classifier.random_forest_classifier">
@@ -220,12 +246,20 @@
 <dl class="py function">
 <dt id="skshapelet.classifiers.classifier.svc_classifier">
 <code class="sig-prename descclassname">skshapelet.classifiers.classifier.</code><code class="sig-name descname">svc_classifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/classifiers/classifier.html#svc_classifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.classifiers.classifier.svc_classifier" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A static method to return the SVC classifier with default settings.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: string, SVC</dt><dd><p>A tuple combined with classifier id and instance of SVC.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="skshapelet.classifiers.classifier.xgb_classifier">
 <code class="sig-prename descclassname">skshapelet.classifiers.classifier.</code><code class="sig-name descname">xgb_classifier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/classifiers/classifier.html#xgb_classifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.classifiers.classifier.xgb_classifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>A static method to return the eXtreme Gradient Boosting Classifier with default settings.</p>
+<dd><p>A static method to return the eXtreme Gradient Boosting classifier with default settings.</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>output: string, XGBClassifier</dt><dd><p>A tuple combined with classifier id and instance of XGBClassifier.</p>
@@ -243,6 +277,8 @@
 <code class="sig-prename descclassname">skshapelet.classifiers.</code><code class="sig-name descname">cid_to_classifier</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">c_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/classifiers/classifier.html#cid_to_classifier"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.classifiers.cid_to_classifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>A static method to return the tuple combined with classifier id and classifier instance to follow the Pipeline’s rule.</p>
 <dl class="simple">
+<dt>Args:</dt><dd><p>Id of the current classifier.</p>
+</dd>
 <dt>Returns:</dt><dd><dl class="simple">
 <dt>output: tuple</dt><dd><p>A tuple combined with a specific classifier id and instance of the required classifier.</p>
 </dd>

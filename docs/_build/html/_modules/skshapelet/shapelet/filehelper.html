@@ -117,16 +117,17 @@
 <span class="n">ARCHIVE_NAME</span> <span class="o">=</span> <span class="s2">&quot;shapelet&quot;</span>
 
 <div class="viewcode-block" id="write_shapelets_to_csv"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.filehelper.write_shapelets_to_csv">[docs]</a><span class="k">def</span> <span class="nf">write_shapelets_to_csv</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">distinct_class</span><span class="p">,</span> <span class="n">shapelets</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;A simple function to save the shapelets obtained in csv format</span>
+    <span class="sd">&quot;&quot;&quot;A simple function to save the shapelets obtained in csv format.</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    dataset_name: string</span>
-<span class="sd">        The name of the dataset</span>
-<span class="sd">    shapelets: array-like</span>
-<span class="sd">        The shapelets obtained for a dataset</span>
-<span class="sd">    distinct_class: array-like</span>
-<span class="sd">        The distinct class of shapelets</span>
+<span class="sd">    Args:</span>
+<span class="sd">        dataset_name: string</span>
+<span class="sd">            The name of the dataset.</span>
+<span class="sd">        model_id: string</span>
+<span class="sd">            Unique id of the current model.</span>
+<span class="sd">        shapelets: array-like</span>
+<span class="sd">            The shapelets obtained for a dataset.</span>
+<span class="sd">        distinct_class: array-like</span>
+<span class="sd">            The distinct class of shapelets.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Create directory in case it doesn&#39;t exists</span>
     <span class="n">save_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">ARCHIVE_NAME</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_id</span><span class="p">)</span>
@@ -199,29 +200,41 @@
             <span class="n">csv_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span><span class="p">)</span>
             <span class="n">csv_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="read_best_5_shapelets_from_csv"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.filehelper.read_best_5_shapelets_from_csv">[docs]</a><span class="k">def</span> <span class="nf">read_best_5_shapelets_from_csv</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">):</span>
-    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">ARCHIVE_NAME</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;/class_all.csv&#39;</span><span class="p">)</span>
-    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">csv_reader</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">continue</span>
-            <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
-                <span class="k">break</span>
-        <span class="k">return</span> <span class="n">rows</span></div>
 
 <div class="viewcode-block" id="get_all_labels_from_csv"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.filehelper.get_all_labels_from_csv">[docs]</a><span class="k">def</span> <span class="nf">get_all_labels_from_csv</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple function to get all labels in csv format according to the current model id.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dataset_name: string</span>
+<span class="sd">            The name of the dataset.</span>
+<span class="sd">        model_id: string</span>
+<span class="sd">            Unique id of the current model.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: list</span>
+<span class="sd">            A list of distinct labels.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">ARCHIVE_NAME</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_id</span> <span class="o">+</span> <span class="s1">&#39;/labels.csv&#39;</span><span class="p">)</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">csv_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv_reader</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
 
+
 <div class="viewcode-block" id="get_all_index_by_label_from_csv"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.filehelper.get_all_index_by_label_from_csv">[docs]</a><span class="k">def</span> <span class="nf">get_all_index_by_label_from_csv</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple function to get all indexes according to the current model id and label.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dataset_name: string</span>
+<span class="sd">            The name of the dataset.</span>
+<span class="sd">        model_id: string</span>
+<span class="sd">            Unique id of the current model.</span>
+<span class="sd">        label: string</span>
+<span class="sd">            The name of the label.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: list</span>
+<span class="sd">            A list of all indexes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">folder_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">ARCHIVE_NAME</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_id</span><span class="p">)</span>
     <span class="n">file_path</span> <span class="o">=</span> <span class="n">folder_path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;class_&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -229,7 +242,20 @@
         <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">csv_reader</span><span class="p">))</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">length</span><span class="p">)]</span></div>
 
+
 <div class="viewcode-block" id="get_all_shapelets_from_csv"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.filehelper.get_all_shapelets_from_csv">[docs]</a><span class="k">def</span> <span class="nf">get_all_shapelets_from_csv</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_id</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple function to get all shapelets in csv format according to the current model id.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dataset_name: string</span>
+<span class="sd">            The name of the dataset</span>
+<span class="sd">        model_id: string</span>
+<span class="sd">            Unique id of the current model</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: list</span>
+<span class="sd">            A list of all shapelets</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">ARCHIVE_NAME</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_id</span> <span class="o">+</span> <span class="s1">&#39;/class_all.csv&#39;</span><span class="p">)</span>
     <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -238,7 +264,24 @@
             <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">rows</span></div>
 
+
 <div class="viewcode-block" id="get_shapelet_by_label_index_from_csv"><a class="viewcode-back" href="../../../skshapelet.shapelet.html#skshapelet.shapelet.filehelper.get_shapelet_by_label_index_from_csv">[docs]</a><span class="k">def</span> <span class="nf">get_shapelet_by_label_index_from_csv</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple function to get the shapelet by the current model id, label and index.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dataset_name: string</span>
+<span class="sd">            The name of the dataset</span>
+<span class="sd">        model_id: string</span>
+<span class="sd">            Unique id of the current model</span>
+<span class="sd">        label: string</span>
+<span class="sd">            The name of the label.</span>
+<span class="sd">        index: int</span>
+<span class="sd">            The order number of the index.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: list</span>
+<span class="sd">            A list of shapelet information.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">folder_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MODULE</span><span class="p">,</span> <span class="n">ARCHIVE_NAME</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">dataset_name</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">model_id</span><span class="p">)</span>
     <span class="n">file_path</span> <span class="o">=</span> <span class="n">folder_path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;class_&#39;</span> <span class="o">+</span> <span class="n">label</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>

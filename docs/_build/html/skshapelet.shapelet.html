@@ -194,38 +194,104 @@
 <dl class="py function">
 <dt id="skshapelet.shapelet.filehelper.get_all_index_by_label_from_csv">
 <code class="sig-prename descclassname">skshapelet.shapelet.filehelper.</code><code class="sig-name descname">get_all_index_by_label_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em>, <em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_all_index_by_label_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.filehelper.get_all_index_by_label_from_csv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A simple function to get all indexes according to the current model id and label.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>dataset_name: string</dt><dd><p>The name of the dataset.</p>
+</dd>
+<dt>model_id: string</dt><dd><p>Unique id of the current model.</p>
+</dd>
+<dt>label: string</dt><dd><p>The name of the label.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>A list of all indexes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="skshapelet.shapelet.filehelper.get_all_labels_from_csv">
 <code class="sig-prename descclassname">skshapelet.shapelet.filehelper.</code><code class="sig-name descname">get_all_labels_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_all_labels_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.filehelper.get_all_labels_from_csv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A simple function to get all labels in csv format according to the current model id.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>dataset_name: string</dt><dd><p>The name of the dataset.</p>
+</dd>
+<dt>model_id: string</dt><dd><p>Unique id of the current model.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>A list of distinct labels.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="skshapelet.shapelet.filehelper.get_all_shapelets_from_csv">
 <code class="sig-prename descclassname">skshapelet.shapelet.filehelper.</code><code class="sig-name descname">get_all_shapelets_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_all_shapelets_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.filehelper.get_all_shapelets_from_csv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A simple function to get all shapelets in csv format according to the current model id.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>dataset_name: string</dt><dd><p>The name of the dataset</p>
+</dd>
+<dt>model_id: string</dt><dd><p>Unique id of the current model</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>A list of all shapelets</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="skshapelet.shapelet.filehelper.get_shapelet_by_label_index_from_csv">
 <code class="sig-prename descclassname">skshapelet.shapelet.filehelper.</code><code class="sig-name descname">get_shapelet_by_label_index_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_shapelet_by_label_index_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.filehelper.get_shapelet_by_label_index_from_csv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="skshapelet.shapelet.filehelper.read_best_5_shapelets_from_csv">
-<code class="sig-prename descclassname">skshapelet.shapelet.filehelper.</code><code class="sig-name descname">read_best_5_shapelets_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#read_best_5_shapelets_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.filehelper.read_best_5_shapelets_from_csv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A simple function to get the shapelet by the current model id, label and index.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>dataset_name: string</dt><dd><p>The name of the dataset</p>
+</dd>
+<dt>model_id: string</dt><dd><p>Unique id of the current model</p>
+</dd>
+<dt>label: string</dt><dd><p>The name of the label.</p>
+</dd>
+<dt>index: int</dt><dd><p>The order number of the index.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>A list of shapelet information.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="skshapelet.shapelet.filehelper.write_shapelets_to_csv">
 <code class="sig-prename descclassname">skshapelet.shapelet.filehelper.</code><code class="sig-name descname">write_shapelets_to_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em>, <em class="sig-param"><span class="n">distinct_class</span></em>, <em class="sig-param"><span class="n">shapelets</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#write_shapelets_to_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.filehelper.write_shapelets_to_csv" title="Permalink to this definition">¶</a></dt>
-<dd><p>A simple function to save the shapelets obtained in csv format</p>
+<dd><p>A simple function to save the shapelets obtained in csv format.</p>
 <dl class="simple">
-<dt>dataset_name: string</dt><dd><p>The name of the dataset</p>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>dataset_name: string</dt><dd><p>The name of the dataset.</p>
 </dd>
-<dt>shapelets: array-like</dt><dd><p>The shapelets obtained for a dataset</p>
+<dt>model_id: string</dt><dd><p>Unique id of the current model.</p>
 </dd>
-<dt>distinct_class: array-like</dt><dd><p>The distinct class of shapelets</p>
+<dt>shapelets: array-like</dt><dd><p>The shapelets obtained for a dataset.</p>
+</dd>
+<dt>distinct_class: array-like</dt><dd><p>The distinct class of shapelets.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -971,22 +1037,68 @@ To save time, we sort the list each time we insert a shapelet.</p>
 <dl class="py function">
 <dt id="skshapelet.shapelet.get_all_index_by_label_from_csv">
 <code class="sig-prename descclassname">skshapelet.shapelet.</code><code class="sig-name descname">get_all_index_by_label_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em>, <em class="sig-param"><span class="n">label</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_all_index_by_label_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.get_all_index_by_label_from_csv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A simple function to get all indexes according to the current model id and label.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>dataset_name: string</dt><dd><p>The name of the dataset.</p>
+</dd>
+<dt>model_id: string</dt><dd><p>Unique id of the current model.</p>
+</dd>
+<dt>label: string</dt><dd><p>The name of the label.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>A list of all indexes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="skshapelet.shapelet.get_all_labels_from_csv">
 <code class="sig-prename descclassname">skshapelet.shapelet.</code><code class="sig-name descname">get_all_labels_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_all_labels_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.get_all_labels_from_csv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A simple function to get all labels in csv format according to the current model id.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>dataset_name: string</dt><dd><p>The name of the dataset.</p>
+</dd>
+<dt>model_id: string</dt><dd><p>Unique id of the current model.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>A list of distinct labels.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt id="skshapelet.shapelet.get_shapelet_by_label_index_from_csv">
 <code class="sig-prename descclassname">skshapelet.shapelet.</code><code class="sig-name descname">get_shapelet_by_label_index_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em>, <em class="sig-param"><span class="n">model_id</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#get_shapelet_by_label_index_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.get_shapelet_by_label_index_from_csv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt id="skshapelet.shapelet.read_best_5_shapelets_from_csv">
-<code class="sig-prename descclassname">skshapelet.shapelet.</code><code class="sig-name descname">read_best_5_shapelets_from_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/skshapelet/shapelet/filehelper.html#read_best_5_shapelets_from_csv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#skshapelet.shapelet.read_best_5_shapelets_from_csv" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A simple function to get the shapelet by the current model id, label and index.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>dataset_name: string</dt><dd><p>The name of the dataset</p>
+</dd>
+<dt>model_id: string</dt><dd><p>Unique id of the current model</p>
+</dd>
+<dt>label: string</dt><dd><p>The name of the label.</p>
+</dd>
+<dt>index: int</dt><dd><p>The order number of the index.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>output: list</dt><dd><p>A list of shapelet information.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 </div>

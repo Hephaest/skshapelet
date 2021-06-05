@@ -128,7 +128,7 @@
 
 
 <div class="viewcode-block" id="xgb_classifier"><a class="viewcode-back" href="../../../skshapelet.classifiers.html#skshapelet.classifiers.classifier.xgb_classifier">[docs]</a><span class="k">def</span> <span class="nf">xgb_classifier</span><span class="p">():</span>
-    <span class="sd">&quot;&quot;&quot;A static method to return the eXtreme Gradient Boosting Classifier with default settings.</span>
+    <span class="sd">&quot;&quot;&quot;A static method to return the eXtreme Gradient Boosting classifier with default settings.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        output: string, XGBClassifier</span>
@@ -138,23 +138,50 @@
 
 
 <div class="viewcode-block" id="decision_tree_classifier"><a class="viewcode-back" href="../../../skshapelet.classifiers.html#skshapelet.classifiers.classifier.decision_tree_classifier">[docs]</a><span class="k">def</span> <span class="nf">decision_tree_classifier</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;A static method to return the decision tree classifier with default settings.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: string, DecisionTreeClassifier</span>
+<span class="sd">            A tuple combined with classifier id and instance of DecisionTreeClassifier.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="s2">&quot;dt&quot;</span><span class="p">,</span> <span class="n">DecisionTreeClassifier</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="bayesian_network_classifier"><a class="viewcode-back" href="../../../skshapelet.classifiers.html#skshapelet.classifiers.classifier.bayesian_network_classifier">[docs]</a><span class="k">def</span> <span class="nf">bayesian_network_classifier</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;A static method to return the bayesian network classifier with default settings.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: string, GaussianNB</span>
+<span class="sd">            A tuple combined with classifier id and instance of GaussianNB.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="s2">&quot;bn&quot;</span><span class="p">,</span> <span class="n">GaussianNB</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="knn_classifier"><a class="viewcode-back" href="../../../skshapelet.classifiers.html#skshapelet.classifiers.classifier.knn_classifier">[docs]</a><span class="k">def</span> <span class="nf">knn_classifier</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;A static method to return the KNN classifier with default settings.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: string, KNeighborsClassifier</span>
+<span class="sd">            A tuple combined with classifier id and instance of KNeighborsClassifier.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="s2">&quot;knn&quot;</span><span class="p">,</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="svc_classifier"><a class="viewcode-back" href="../../../skshapelet.classifiers.html#skshapelet.classifiers.classifier.svc_classifier">[docs]</a><span class="k">def</span> <span class="nf">svc_classifier</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;A static method to return the SVC classifier with default settings.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        output: string, SVC</span>
+<span class="sd">            A tuple combined with classifier id and instance of SVC.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="s2">&quot;svc&quot;</span><span class="p">,</span> <span class="n">SVC</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="cid_to_classifier"><a class="viewcode-back" href="../../../skshapelet.classifiers.html#skshapelet.classifiers.classifier.cid_to_classifier">[docs]</a><span class="k">def</span> <span class="nf">cid_to_classifier</span><span class="p">(</span><span class="n">c_id</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A static method to return the tuple combined with classifier id and classifier instance to follow the Pipeline&#39;s rule.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        Id of the current classifier.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        output: tuple</span>
