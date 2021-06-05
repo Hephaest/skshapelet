@@ -1,0 +1,11 @@
+*.DS_Store
+/shelf/
+.idea/
+/__pycache__/
+*/__pycache__/
+*/*/__pycache__/
+*/*/*/__pycache__/
+/skshapelet/shapelet/shapelet/
+/build/
+/dist/
+/skshapelet.egg-info/
