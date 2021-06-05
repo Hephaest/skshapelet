@@ -22,7 +22,7 @@ def xgb_classifier():
         output: string, XGBClassifier
             A tuple combined with classifier id and instance of XGBClassifier.
     """
-    return "xgb", XGBClassifier(use_label_encoder=False, tree_method="gpu_hist", gpu_id=0)
+    return "xgb", XGBClassifier(use_label_encoder=False, tree_method="hist", gpu_id=-1)
 
 
 def decision_tree_classifier():

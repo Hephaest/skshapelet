@@ -20,7 +20,6 @@ MIN_REQUIREMENTS = {
     "tqdm": "4.10.0",
     "sktime": "0.5.3",
     "xgboost":"1.3.3",
-    "mass-ts":"0.1.4",
 }
 
 EXTRAS_REQUIRE = {
@@ -28,14 +27,10 @@ EXTRAS_REQUIRE = {
         "cython>=0.29.0",
         "matplotlib>=3.3.2",
         "pmdarima>=1.8.0",
-        "scikit_posthocs>= 0.6.5",
         "seaborn>=0.11.0",
         "tsfresh>=0.17.0",
         "catch22>=0.2.0",
-        "hcrystalball>=0.1.9",
         "stumpy>=1.5.1",
-        "tbats>=1.1.0",
-        "fbprophet>=0.7.1",
     ],
 }
 
@@ -113,7 +108,7 @@ class CleanCommand(Clean):
             print("Will remove generated .c files")  # noqa: T001
         if os.path.exists("build"):
             shutil.rmtree("build")
-        for dirpath, dirnames, filenames in os.walk("sktime"):
+        for dirpath, dirnames, filenames in os.walk("skshapelet"):
             for filename in filenames:
                 if any(
                     filename.endswith(suffix)
@@ -131,7 +126,7 @@ class CleanCommand(Clean):
                     shutil.rmtree(os.path.join(dirpath, dirname))
 
 
-cmdclass = {"clean": CleanCommand}
+cmdclass = {"clean": CleanCommand }
 
 # custom build_ext command to set OpenMP compile flags depending on os and
 # compiler
@@ -141,7 +136,7 @@ try:
 
     class build_ext_subclass(build_ext):
         def build_extensions(self):
-            from sktime._build_utils.openmp_helpers import get_openmp_flag
+            from skshapelet._build_utils.openmp_helpers import get_openmp_flag
 
             if not os.getenv("SKTIME_NO_OPENMP"):
                 openmp_flag = get_openmp_flag(self.compiler)
