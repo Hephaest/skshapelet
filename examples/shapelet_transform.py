@@ -1,3 +1,7 @@
+"""
+Example mainly mirrors from sktime with a few changes.
+"""
+
 from skshapelet.shapelet.shapelet_transform import BinaryShapeletTransform
 from skshapelet.utils.validation import check_transform_series
 from skshapelet.utils.validation import check_transform_X

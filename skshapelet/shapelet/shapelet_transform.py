@@ -91,7 +91,6 @@ class BinaryShapeletTransform(_PanelToTabularTransformer):
         super(BinaryShapeletTransform, self).__init__()
 
     def fit(self, X, y=None):
-        # X, y = check_transform_series(X, y)
 
         is_univariate = X.shape[1] == 1
 
@@ -543,8 +542,6 @@ class BinaryShapeletTransform(_PanelToTabularTransformer):
                 The transformed dataframe in tabular format.
         """
         self.check_is_fitted()
-
-        # X = check_transform_X(X)
 
         is_univariate = X.shape[1] == 1
 
