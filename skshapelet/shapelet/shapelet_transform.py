@@ -530,6 +530,7 @@ class BinaryShapeletTransform(_PanelToTabularTransformer):
     def transform(self, X, y=None):
         """Transform a set of data into distances to each extracted shapelet.
         Test dataset should be transformed as a distance matrix.
+        This mirrors the sktime implementation.
 
         Args:
             x: pandas DataFrame
@@ -576,16 +577,6 @@ class BinaryShapeletTransform(_PanelToTabularTransformer):
                     for start_pos in range(
                             0, len(this_series[0]) - this_shapelet_length + 1
                     ):
-                        # if is_univariate:
-                        #     comparison = distance.zscore(
-                        #         this_series[:, start_pos: (start_pos + this_shapelet_length)].flatten()
-                        #     )
-                        #     dist = distance.euclidean_distance(
-                        #         self.shapelets[s].data,
-                        #         comparison
-                        #     )
-                        #     min_dist = min(min_dist, dist)
-                        # else:
                         (mean, inv_cov) = self.shapelets[s].data
                         dist = early_abandon.mahalanobis_distance(
                             this_series[:, start_pos: start_pos + this_shapelet_length].T,
