@@ -157,7 +157,7 @@ except ImportError:
 def setup_package():
     metadata = dict(
         name="skshapelet",
-        version="1.0.3",
+        version="1.1.0",
         author="Miao Cai",
         author_email="philliphily@gmail.com",
         description="Time Series Shapelets Transformation",
